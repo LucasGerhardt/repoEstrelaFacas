@@ -38,7 +38,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Cliente*</label>
-                                            <select name="{{getenv('REDMINE_FIELD_CLIENTE')}}" id="" class="custom-select rounded-0 select2" required>
+                                            <select name="cf_{{getenv('REDMINE_FIELD_CLIENTE')}}" id="" class="custom-select rounded-0 select2" required>
                                                 <option value="8">Ordem de Produto</option>
                                             </select>
                                         </div>
@@ -81,20 +81,20 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input type="text" class="form-control" name="{{getenv('REDMINE_FIELD_VALOR')}}">
+                                            <input type="text" class="form-control" name="cf_{{getenv('REDMINE_FIELD_VALOR')}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Quantidade</label>
-                                        <input type="number" name="{{getenv('REDMINE_FIELD_QUANTIDADE')}}" id="" class="form-control">
+                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_QUANTIDADE')}}" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Aço(cm)</label>
-                                        <input type="number" name="{{getenv('REDMINE_FIELD_ACO')}}" id="" class="form-control">
+                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_ACO')}}" id="" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Tipo de borracha</label>
-                                        <select name="{{getenv('REDMINE_FIELD_TIPO_BORRACHA')}}" class="custom-select rounded-0 select2">
+                                        <select name="cf_{{getenv('REDMINE_FIELD_TIPO_BORRACHA')}}" class="custom-select rounded-0 select2">
                                             <option value=""></option>
                                             <option value="8/10 Shore - Azul">8/10 Shore - Azul</option>
                                             <option value="15 Shore - Vermelha">15 Shore - Vermelha</option>
@@ -112,13 +112,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Vazadores colocados</label>
-                                        <input type="number" name="{{getenv('REDMINE_FIELD_VAZADOR_COLOCADO')}}" id="" class="form-control">
+                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_VAZADOR_COLOCADO')}}" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Vazadores dobrados</label>
-                                        <input type="number" name="{{getenv('REDMINE_FIELD_VAZADOR_DOBRADO')}}" id="" class="form-control">
+                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_VAZADOR_DOBRADO')}}" id="" class="form-control">
                                     </div>
                                 </div>
                             </div>

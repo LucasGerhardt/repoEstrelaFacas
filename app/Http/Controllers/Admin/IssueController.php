@@ -53,7 +53,7 @@ class IssueController extends Controller
         $helpRedmine = new HelpRedmine();
         $client = $helpRedmine->createClientRestApi();
 
-        $request = $helpRedmine->workRequestToRest($request->all());
+        $request = $helpRedmine->workRequestCustomFieldsToRest($request->all());
 
         dd($client->getApi( 'issue')->create($request->all()));
 

@@ -21,15 +21,15 @@ class HelpRedmine{
      * @param array $request
      * @return array
      */
-    public function workRequestToRest( array $request )
+    public function workRequestCustomFieldsToRest( array $request )
     {
         $client = $this->createClientRestApi();
         $customFields = $client->getApi('custom_fields')->all();
 
-        dd($customFields[0]);
+        dd($request);
+        $i = 0;
         foreach ($request as $id => $value)
         {
-            $i = 0;
             if ( str_contains($id, 'cf_') )
             {
                 $idCustomfield = str_replace('cf_', '', $id);
@@ -41,6 +41,8 @@ class HelpRedmine{
 
             $i++;
         }
+
+        dd($request);
 
         return $request;
     }
