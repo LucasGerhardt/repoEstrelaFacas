@@ -24,13 +24,13 @@
                     <form action="{{ route('admin.issue.store') }}" method="post">
                         @csrf
                         <div class="card-body">
+                            <input type="hidden" name="project_id" id="" class="form-control" value="1">
 
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" name="project_id" id="" class="form-control" value="1">
                                         <label>Tipo*</label>
-                                        <select name="tracker_id" id="" class="custom-select rounded-0" required>
+                                        <select name="tracker_id" id="" class="form-control select2" required>
                                             <option value="4">Ordem de Produto</option>
                                         </select>
                                     </div>
@@ -38,7 +38,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Cliente*</label>
-                                            <select name="cf_{{getenv('REDMINE_FIELD_CLIENTE')}}" id="" class="custom-select rounded-0 select2" required>
+                                            <select name="cf_{{getenv('REDMINE_FIELD_CLIENTE')}}" class="custom-select rounded-0 select2" required>
                                                 <option value="8">Ordem de Produto</option>
                                             </select>
                                         </div>

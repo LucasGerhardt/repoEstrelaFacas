@@ -248,7 +248,7 @@ return [
         ],
         ['header' => 'admin'],
         [
-            'text'        => 'issue',
+            'text'        => 'Chamado',
             'url'         => 'admin/issue/create',
             'icon'        => 'fas fa-fw fa-solid fa-plus',
         ],
