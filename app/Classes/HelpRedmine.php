@@ -16,31 +16,47 @@ class HelpRedmine{
     }
 
     /**
-     * Trabalha os campos "cf_" do array para poder ser como campo personalizado do redmine
+     * Trabalha o request da tela para ser utilizado pelo Rest do redmine na inserção
      *
      * @param array $request
      * @return array
      */
-    public function workRequestCustomFieldsToRest( array $request )
+    public function workRequestToRest( array $request )
     {
         $client = $this->createClientRestApi();
-        $customFields = array_flip($client->getApi('custom_fields')->listing());
 
+        // Trabalha os campos personalizados "cf_"
+        $customFields = array_flip($client->getApi('custom_fields')->listing());
         foreach ($request as $id => $value)
         {
             if ( str_contains($id, 'cf_') )
             {
                 $idCustomfield = str_replace('cf_', '', $id);
 
-                $request['custom_fields'][] = array('id' => $idCustomfield,
-                                                    'name' => $customFields[$idCustomfield],
-                                                    'value' => $value);
+                $request['custom_fields'][] = array(
+                    'id' => $idCustomfield,
+                    'name' => $customFields[$idCustomfield],
+                    'value' => $value);
             }
+        }
+
+        //Trabalha o campo de upload de arquivo
+        if( !is_null($request["file"]) )
+        {
+            $file = explode('.', $request["file"]);
+            $upload = json_decode($client->getApi('attachment')->upload($request["file"]));
+
+            $request['uploads'] = array(
+                array(
+                    'token' => $upload->upload->token,
+                    'filename' => $request["file"],
+                    'description' => 'Arquivo inserido na criação da OP',
+                    'content_type' => 'application/' . $file[1]
+                )
+            );
         }
 
         return $request;
     }
-
-    
 
 }

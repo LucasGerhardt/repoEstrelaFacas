@@ -25,8 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $client = new NativeCurlClient(getenv('REDMINE_API_URL'), getenv('REDMINE_API_USERNAME'), getenv('REDMINE_API_PASSWORD'));
-
         return view('admin/home');
     }
 }

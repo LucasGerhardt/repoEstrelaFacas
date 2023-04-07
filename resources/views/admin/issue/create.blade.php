@@ -20,7 +20,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Inserção de Chanado</h3>
                     </div>
-
                     <form action="{{ route('admin.issue.store') }}" method="post">
                         @csrf
                         <div class="card-body">
@@ -39,7 +38,9 @@
                                         <div class="form-group">
                                             <label>Cliente*</label>
                                             <select name="cf_{{getenv('REDMINE_FIELD_CLIENTE')}}" class="custom-select rounded-0 select2" required>
-                                                <option value="8">Ordem de Produto</option>
+                                                @foreach( $usuarios as $c )
+                                                    <option value="{{ $c['id'] }}" >{{ $c['name'] }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -55,10 +56,9 @@
                                     <div class="form-group">
                                         <label>Prioridade</label>
                                         <select name="priority_id" id="" class="custom-select rounded-0 select2">
-                                            <option value="1">Baixa</option>
-                                            <option value="2">Normal</option>
-                                            <option value="3">Alta</option>
-                                            <option value="4">Urgente</option>
+                                            @foreach( $prioridades as $c )
+                                                <option value="{{ $c['id'] }}" >{{ $c['name'] }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -94,7 +94,12 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Aço(cm)</label>
-                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_ACO')}}" id="" class="form-control">
+                                        <select name="cf_{{getenv('REDMINE_FIELD_ACO')}}" class="custom-select rounded-0 select2">
+                                            <option value=""></option>
+                                            @foreach( $acos as $c )
+                                                <option value="{{ $c['id'] }}" > {{ $c['name'] }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -104,9 +109,29 @@
                                         <label>Tipo de borracha</label>
                                         <select name="cf_{{getenv('REDMINE_FIELD_TIPO_BORRACHA')}}" class="custom-select rounded-0 select2">
                                             <option value=""></option>
-                                            <option value="8/10 Shore - Azul">8/10 Shore - Azul</option>
-                                            <option value="15 Shore - Vermelha">15 Shore - Vermelha</option>
-                                            <option value="35 Shore - Branca">35 Shore - Branca</option></select>
+                                            @foreach( $borrachas as $c )
+                                                <option value="{{ $c['id'] }}" > {{ $c['name'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Chapa de aço</label>
+                                        <select name="cf_{{getenv('REDMINE_FIELD_CHAPA_ACO')}}" class="custom-select rounded-0 select2">
+                                            <option value="0">Não</option>
+                                            <option value="1">Sim</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Arquivo</label>
+                                        <div class="custom-file">
+                                            <input type="file" name="file" id="" class="custom-file-input">
+                                            <label class="custom-file-label" for="exampleInputFile">Escolher arquivo</label>
+                                        </div>
                                     </div>
                                 </div>
 {{--                                <div class="col-sm-4">--}}
@@ -122,19 +147,6 @@
 {{--                                    </div>--}}
 {{--                                </div>--}}
                             </div>
-
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label>Arquivo</label>
-                                        <div class="custom-file">
-                                            <input type="file" name="file" id="" class="custom-file-input">
-                                                <label class="custom-file-label" for="exampleInputFile">Escolher arquivo</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
 
