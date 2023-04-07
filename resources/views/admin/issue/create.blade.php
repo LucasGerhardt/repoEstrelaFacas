@@ -109,18 +109,18 @@
                                             <option value="35 Shore - Branca">35 Shore - Branca</option></select>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Vazadores colocados</label>
-                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_VAZADOR_COLOCADO')}}" id="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Vazadores dobrados</label>
-                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_VAZADOR_DOBRADO')}}" id="" class="form-control">
-                                    </div>
-                                </div>
+{{--                                <div class="col-sm-4">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Vazadores colocados</label>--}}
+{{--                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_VAZADOR_COLOCADO')}}" id="" class="form-control">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-sm-4">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Vazadores dobrados</label>--}}
+{{--                                        <input type="number" name="cf_{{getenv('REDMINE_FIELD_VAZADOR_DOBRADO')}}" id="" class="form-control">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
                             <div class="row">
